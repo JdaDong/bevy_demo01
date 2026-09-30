@@ -1,0 +1,45 @@
+[package]
+name = "bevy_demo01"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+description = "Bevy 0.19 2D showcase game: Star Harvester (ECS / States / Messages / Observers / Assets / UI / Audio / Gizmos / Picking / Reflect ...)"
+license = "MIT OR Apache-2.0"
+default-run = "bevy_demo01"
+
+[lib]
+name = "bevy_demo01"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bevy_demo01"
+path = "src/main.rs"
+
+[dependencies]
+# 只开 2D + UI + 音频，不拉 3D/PBR/glTF，编译时间能省一大截
+bevy = { version = "0.19.1", default-features = false, features = [
+  "2d",
+  "ui",
+  "audio",
+  "wav",
+  "bevy_dev_tools",
+] }
+serde = { version = "1", features = ["derive"] }
+ron = "0.12"
+thiserror = "2"
+
+[features]
+default = []
+# 开发时热重载 assets：cargo run --features hot
+hot = ["bevy/file_watcher"]
+
+# 开发构建：自身代码 opt-level=1，依赖 opt-level=3（Bevy 官方推荐）
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

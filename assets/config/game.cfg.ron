@@ -1,0 +1,44 @@
+// Star Harvester 数值配置（自定义 AssetLoader 加载）。
+// 开启热重载：cargo run --features hot，然后修改本文件并保存，游戏内立即生效。
+// 未写出的字段使用代码里的默认值（#[serde(default)]）。
+(
+    rng_seed: 20260930,
+    fixed_hz: 60.0,
+
+    // ---- 玩家 ----
+    player_max_hp: 5,
+    player_accel: 2600.0,
+    player_drag: 4.0,
+    player_max_speed: 420.0,
+    player_radius: 16.0,
+    invulnerable_secs: 1.2,
+    fire_cooldown_secs: 0.16,
+    bullet_speed: 900.0,
+    bullet_lifetime_secs: 1.2,
+    bullet_damage: 1,
+    missile_speed: 520.0,
+    missile_turn_rate: 7.0,
+    missile_damage: 4,
+    missile_cooldown_secs: 1.5,
+
+    // ---- 敌人 ----
+    enemy_base_spawn_secs: 1.6,
+    enemy_min_spawn_secs: 0.35,
+    enemy_base_cap: 6,
+    wave_duration_secs: 25.0,
+    meteor_speed: (60.0, 160.0),
+    meteor_hp: 2,
+    hunter_speed: 210.0,
+    hunter_turn_rate: 2.5,
+    hunter_hp: 3,
+    carrier_hp: 12,
+    carrier_armor: 2,
+
+    // ---- 收集物 ----
+    star_spawn_secs: 1.1,
+    star_max: 8,
+    star_value: 10,
+    magnet_radius: 140.0,
+    powerup_drop_chance: 0.18,
+    combo_window_secs: 2.5,
+)

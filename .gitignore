@@ -1,0 +1,6 @@
+/target
+/saves
+/screenshots
+*.ron.tmp
+.DS_Store
+/dist
